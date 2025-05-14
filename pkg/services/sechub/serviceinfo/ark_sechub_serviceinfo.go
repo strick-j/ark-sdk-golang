@@ -25,7 +25,7 @@ var SecHubServiceInfoServiceConfig = services.ArkServiceConfig{
 	OptionalAuthenticatorNames: []string{},
 }
 
-// SecHubServiceInfoService is the service for managing db secrets.
+// ArkSecHubServiceInfoService is the service for retrieve Secrets Hub service Info
 type ArkSecHubServiceInfoService struct {
 	services.ArkService
 	*services.ArkBaseService
@@ -33,8 +33,8 @@ type ArkSecHubServiceInfoService struct {
 	client  *isp.ArkISPServiceClient
 }
 
-// NewSecHubServiceInfoService creates a new instance of SecHubServiceInfoService.
-func NewSecHubServiceInfoService(authenticators ...auth.ArkAuth) (*ArkSecHubServiceInfoService, error) {
+// NewArkSecHubServiceInfoService creates a new instance of ArkSecHubServiceInfoService.
+func NewArkSecHubServiceInfoService(authenticators ...auth.ArkAuth) (*ArkSecHubServiceInfoService, error) {
 	serviceInfoService := &ArkSecHubServiceInfoService{}
 	var serviceInfoServiceInterface services.ArkService = serviceInfoService
 	baseService, err := services.NewArkBaseService(serviceInfoServiceInterface, authenticators...)
@@ -46,7 +46,7 @@ func NewSecHubServiceInfoService(authenticators ...auth.ArkAuth) (*ArkSecHubServ
 		return nil, err
 	}
 	ispAuth := ispBaseAuth.(*auth.ArkISPAuth)
-	client, err := isp.FromISPAuth(ispAuth, "dpa", ".", "", serviceInfoService.refreshSecHubAuth)
+	client, err := isp.FromISPAuth(ispAuth, "sechub", ".", "", serviceInfoService.refreshSecHubAuth)
 	if err != nil {
 		return nil, err
 	}
@@ -65,9 +65,9 @@ func (s *ArkSecHubServiceInfoService) refreshSecHubAuth(client *common.ArkClient
 }
 
 // ServiceInfo retrieves the service info from the Secrets Hub service.
-func (s *ArkSecHubServiceInfoService) ServiceInfo(getSecret *serviceinfomodels.AArkSecHubGetServiceInfo) (*serviceinfomodels.ArkSecHubGetServiceInfo, error) {
-	s.Logger.Info("Getting secret [%s]", getSecret.SecretID)
-	response, err := s.client.Get(context.Background(), fmt.Sprintf(sechubURL, getSecret.SecretID), nil)
+func (s *ArkSecHubServiceInfoService) ServiceInfo() (*serviceinfomodels.ArkSecHubGetServiceInfo, error) {
+	s.Logger.Info("Getting serviceinfo")
+	response, err := s.client.Get(context.Background(), fmt.Sprintf(sechubURL), nil)
 	if err != nil {
 		return nil, err
 	}

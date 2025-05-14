@@ -1,4 +1,4 @@
-module github.com/cyberark/ark-sdk-golang
+module github.com/strick-j/ark-sdk-golang
 
 go 1.24.0
 
@@ -6,6 +6,7 @@ require (
 	github.com/EDDYCJY/fake-useragent v0.2.0
 	github.com/Iilun/survey/v2 v2.5.3
 	github.com/confluentinc/go-editor v0.11.0
+	github.com/cyberark/ark-sdk-golang v1.0.0
 	github.com/fatih/color v1.18.0
 	github.com/golang-jwt/jwt/v5 v5.2.2
 	github.com/google/uuid v1.6.0
@@ -48,7 +49,6 @@ require (
 	github.com/mattn/go-colorable v0.1.14 // indirect
 	github.com/mattn/go-isatty v0.0.20 // indirect
 	github.com/mgutz/ansi v0.0.0-20200706080929-d51e80ef957d // indirect
-	github.com/niemeyer/pretty v0.0.0-20200227124842-a10e7caefd8e // indirect
 	github.com/pelletier/go-toml/v2 v2.2.4 // indirect
 	github.com/sagikazarmark/locafero v0.9.0 // indirect
 	github.com/sourcegraph/conc v0.3.0 // indirect
@@ -64,7 +64,6 @@ require (
 	golang.org/x/net v0.39.0 // indirect
 	golang.org/x/sys v0.32.0 // indirect
 	golang.org/x/term v0.31.0 // indirect
-	gopkg.in/check.v1 v1.0.0-20200227125254-8fa46927fb4f // indirect
 	gopkg.in/errgo.v1 v1.0.1 // indirect
 	gopkg.in/retry.v1 v1.0.3 // indirect
 	gopkg.in/yaml.v3 v3.0.1 // indirect

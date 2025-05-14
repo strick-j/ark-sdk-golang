@@ -1,12 +1,13 @@
 package actions
 
 import (
-	"github.com/spf13/cobra"
-	commonInternal "github.com/cyberark/ark-sdk-golang/internal/common"
-	"github.com/cyberark/ark-sdk-golang/pkg/common"
-	commonArgs "github.com/cyberark/ark-sdk-golang/pkg/common/args"
 	"os"
 	"reflect"
+
+	"github.com/cyberark/ark-sdk-golang/pkg/common"
+	commonArgs "github.com/cyberark/ark-sdk-golang/pkg/common/args"
+	"github.com/spf13/cobra"
+	commonInternal "github.com/strick-j/ark-sdk-golang/internal/common"
 )
 
 // ArkCacheAction is a struct that implements the ArkAction interface for cache management.
